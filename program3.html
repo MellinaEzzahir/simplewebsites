@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 3</title>
+    <style>
+        #timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            font-size: 10rem;
+        }
+    </style>
+    <script>
+        const targetDate = new Date('December 31, 2024 23:59:59').getTime();
+        setInterval(() => {
+            const currentDate = Date.now();
+            const timeTill = targetDate - currentDate;
+            const days = Math.floor(timeTill / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeTill % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeTill % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeTill % (1000 * 60)) / 1000);
+            document.getElementById('timer').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+    </script>
+</head>
+<body>
+    <h1>Time until 2025</h1>
+    <h2 id="timer">Loading...</h2>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 2</title>
+    <!-- CSS inside the file -->
+    <style>
+        body {
+            color: rgb(58, 191, 147);
+        }
+        button {
+            padding: 10px;
+            color: rgb(58, 191, 147);
+            background-color: white;
+            border-radius: 10px;
+            border: rgb(58, 191, 147) solid 5px;
+        }
+
+        button:hover{
+            color: rgb(37, 126, 97);
+            border-color: rgb(37, 126, 97);
+        }
+
+        button:active{
+            color: rgb(15, 53, 40);
+            border-color: rgb(15, 53, 40);
+        }
+
+    </style>
+    <!-- JavaScript inside the file -->
+    <script>
+        const quotesList = [
+            { id: 1, quote: "The only way to do great work is to love what you do." },
+            { id: 2, quote: "Success is not the key to happiness. Happiness is the key to success." },
+            { id: 3, quote: "Life is what happens when you're busy making other plans." },
+            { id: 4, quote: "In the end, we only regret the chances we didn't take." },
+            { id: 5, quote: "Be yourself; everyone else is already taken." },
+            { id: 6, quote: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe." },
+            { id: 7, quote: "You must be the change you wish to see in the world." },
+            { id: 8, quote: "Success usually comes to those who are too busy to be looking for it." },
+            { id: 9, quote: "Dont watch the clock; do what it does. Keep going." },
+            { id: 10, quote: "The future belongs to those who believe in the beauty of their dreams." },
+            { id: 11, quote: "It does not matter how slowly you go as long as you do not stop." },
+            { id: 12, quote: "You only live once, but if you do it right, once is enough." },
+            { id: 13, quote: "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate, to have it make some difference that you have lived and lived well." },
+            { id: 14, quote: "Life isnt about finding yourself. Life is about creating yourself." },
+            { id: 15, quote: "The only impossible journey is the one you never begin." },
+            { id: 16, quote: "The best time to plant a tree was 20 years ago. The second best time is now." },
+            { id: 17, quote: "Everything you can imagine is real." },
+            { id: 18, quote: "It always seems impossible until it's done." },
+            { id: 19, quote: "The greatest glory in living lies not in never falling, but in rising every time we fall." },
+            { id: 20, quote: "Do not go where the path may lead, go instead where there is no path and leave a trail." },
+            { id: 21, quote: "Life is either a daring adventure or nothing at all." },
+            { id: 22, quote: "You miss 100% of the shots you dont take." },
+            { id: 23, quote: "The only limit to our realization of tomorrow is our doubts of today." },
+            { id: 24, quote: "Act as if what you do makes a difference. It does." },
+            { id: 25, quote: "Success is not in what you have, but who you are." },
+            { id: 26, quote: "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment." },
+            { id: 27, quote: "In three words I can sum up everything I've learned about life: it goes on." },
+            { id: 28, quote: "Life is short, and it is up to you to make it sweet." },
+            { id: 29, quote: "In the middle of every difficulty lies opportunity." },
+            { id: 30, quote: "Dont let yesterday take up too much of today." },
+            { id: 31, quote: "You get in life what you have the courage to ask for." },
+            { id: 32, quote: "We may encounter many defeats, but we must not be defeated." },
+            { id: 33, quote: "The greatest wealth is to live content with little." },
+            { id: 34, quote: "It always seems impossible until its done." },
+            { id: 35, quote: "To live is the rarest thing in the world. Most people exist, that is all." },
+            { id: 36, quote: "Dont count the days, make the days count." },
+            { id: 37, quote: "The best revenge is massive success." },
+            { id: 38, quote: "The only person you are destined to become is the person you decide to be." },
+            { id: 39, quote: "The journey of a thousand miles begins with one step." },
+            { id: 40, quote: "If you want to live a happy life, tie it to a goal, not to people or things." },
+            { id: 41, quote: "Believe you can and you're halfway there." },
+            { id: 42, quote: "You can't use up creativity. The more you use, the more you have." },
+            { id: 43, quote: "Do not fear failure. Fear is the greatest failure of all." },
+            { id: 44, quote: "Everything has beauty, but not everyone sees it." },
+            { id: 45, quote: "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate." },
+            { id: 46, quote: "You must be the change you wish to see in the world." },
+            { id: 47, quote: "The only way to do great work is to love what you do." },
+            { id: 48, quote: "Live in the sunshine, swim the sea, drink the wild air." },
+            { id: 49, quote: "The unexamined life is not worth living." },
+            { id: 50, quote: "It is never too late to be what you might have been." },
+            { id: 51, quote: "Life is what happens when you're busy making other plans." },
+            { id: 52, quote: "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment." },
+            { id: 53, quote: "Be the change that you wish to see in the world." },
+            { id: 54, quote: "We are all in the gutter, but some of us are looking at the stars." },
+            { id: 55, quote: "Time is money." },
+            { id: 56, quote: "You only live once, but if you do it right, once is enough." },
+            { id: 57, quote: "Keep your friends close, but your enemies closer." },
+            { id: 58, quote: "It is during our darkest moments that we must focus to see the light." },
+            { id: 59, quote: "A fool thinks himself to be wise, but a wise man knows himself to be a fool." },
+            { id: 60, quote: "The secret of getting ahead is getting started." },
+            { id: 61, quote: "Don’t count the days, make the days count." },
+            { id: 62, quote: "Life isn’t about finding yourself. Life is about creating yourself." },
+            { id: 63, quote: "Do not go where the path may lead, go instead where there is no path and leave a trail." },
+            { id: 64, quote: "Good things come to those who wait, but better things come to those who go out and get them." },
+            { id: 65, quote: "There are no shortcuts to any place worth going." },
+            { id: 66, quote: "A journey of a thousand miles begins with a single step." },
+            { id: 67, quote: "Success usually comes to those who are too busy to be looking for it." },
+            { id: 68, quote: "The only limit to our realization of tomorrow is our doubts of today." },
+            { id: 69, quote: "The best way to predict your future is to create it." },
+            { id: 70, quote: "Do what you can with all you have, wherever you are." },
+            { id: 71, quote: "Everything you can imagine is real." },
+            { id: 72, quote: "Success is not final, failure is not fatal: It is the courage to continue that counts." },
+            { id: 73, quote: "You dont have to be great to start, but you have to start to be great." },
+            { id: 74, quote: "The future belongs to those who believe in the beauty of their dreams." },
+            { id: 75, quote: "I find that the harder I work, the more luck I seem to have." },
+            { id: 76, quote: "If you can dream it, you can do it." },
+            { id: 77, quote: "Nothing in life is to be feared, it is only to be understood." },
+            { id: 78, quote: "Difficulties in life are intended to make us better, not bitter." },
+            { id: 79, quote: "Happiness depends upon ourselves." },
+            { id: 80, quote: "If you want to achieve greatness stop asking for permission." },
+            { id: 81, quote: "You are never too old to set another goal or to dream a new dream." },
+            { id: 82, quote: "The only person you are destined to become is the person you decide to be." },
+            { id: 83, quote: "Opportunities don't happen, you create them." },
+            { id: 84, quote: "Do one thing every day that scares you." },
+            { id: 85, quote: "Life is a daring adventure or nothing at all." },
+            { id: 86, quote: "Dream big and dare to fail." },
+            { id: 87, quote: "It always seems impossible until it's done." },
+            { id: 88, quote: "The best time to plant a tree was 20 years ago. The second best time is now." },
+            { id: 89, quote: "What lies behind us and what lies before us are tiny matters compared to what lies within us." },
+            { id: 90, quote: "Your time is limited, so dont waste it living someone else’s life." },
+            { id: 91, quote: "Believe you can and youre halfway there." },
+            { id: 92, quote: "It does not matter how slowly you go as long as you do not stop." },
+            { id: 93, quote: "The harder you work for something, the greater youll feel when you achieve it." },
+            { id: 94, quote: "The best way to get started is to quit talking and begin doing." },
+            { id: 95, quote: "Life is short, and it is up to you to make it sweet." },
+            { id: 96, quote: "Life is really simple, but we insist on making it complicated." },
+            { id: 97, quote: "Life itself is the most wonderful fairy tale." },
+            { id: 98, quote: "All our dreams can come true, if we have the courage to pursue them." },
+            { id: 99, quote: "The only way to do great work is to love what you do." },
+            { id: 100, quote: "It always seems impossible until its done." }
+        ];
+        function generateQuote(){
+            let randomNumber = Math.floor(Math.random() * 100);
+            document.getElementById('quoteText').innerHTML = ` ${quotesList[randomNumber].quote}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Quote generator:</h1>
+    <button onclick="generateQuote()">generate</button>
+    <p id="quoteText">quote will appear here</p>
+</body>
+</html>
