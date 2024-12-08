@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 1</title>
+
+    <style>
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            background-image: linear-gradient(135deg,
+                    #ff7e5f,
+                    /* Coral */
+                    #feb47b,
+                    /* Peach */
+                    #ff6a00,
+                    /* Dark Orange */
+                    #ee0979,
+                    /* Bright Pink */
+                    #ff0099,
+                    /* Neon Pink */
+                    #493240
+                    /* Dark Purple */
+                );
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            font-size: 10rem;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <h1>Fun gradient</h1>
+</body>
+
+</html>
