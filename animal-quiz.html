@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag quiz</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="question-card" id="question-card" oncli>
+        <p id="title">Flag quiz!</p>
+        <p id="text">Click to continue</p>
+        <button id="0" onclick="buttonselected(0)"></button>
+        <button id="1" onclick="buttonselected(1)"></button>
+        <button id="2" onclick="buttonselected(2)"></button>
+        <button id="3" onclick="buttonselected(3)"></button>
+        <p id="correct"></p>
+    </div>
+    <script>
+        var questionNumber = 0;
+        var result = 0;
+        var currentDificulty = "easy";
+        var currentQuestion;
+        var button1 = document.getElementById("0");
+        var button2 = document.getElementById("1");
+        var button3 = document.getElementById("2");
+        var button4 = document.getElementById("3");
+
+
+        function chooseQuestion() {
+            if(currentDificulty == "easy"){
+                        var quest_num = Math.floor(Math.random() * 8)
+                        currentQuestion = EasyFlagQuestions[quest_num]
+                    }else if(currentDificulty == "medium"){
+                        var quest_num = Math.floor(Math.random() * 8)
+                        currentQuestion = MediumFlagQuestions[quest_num]
+                    }else{
+                        var quest_num = Math.floor(Math.random() * 7)
+                        currentQuestion = MediumFlagQuestions[quest_num]
+                    }
+        }
+
+        
+
+        const card = document.querySelector('#question-card');
+        document.getElementById("title").innerHTML = "New text!";
+        card.addEventListener('click', function () {
+            switch (questionNumber) {
+                case 0:
+                    document.getElementById("title").innerHTML = "Q1";
+                    questionNumber++;
+                    currentDificulty = "easy";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 1:
+                    document.getElementById("title").innerHTML = "Q2";
+                    questionNumber++;
+                    currentDificulty = "easy";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 2:
+                document.getElementById("title").innerHTML = "Q3";
+                    questionNumber++;
+                    currentDificulty = "easy";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 3:
+                    document.getElementById("title").innerHTML = "Q4";
+                    questionNumber++;
+                    currentDificulty = "easy";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 4:
+                    document.getElementById("title").innerHTML = "Q5";
+                    questionNumber++;
+                    currentDificulty = "medium";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 5:
+                    document.getElementById("title").innerHTML = "Q6";
+                    questionNumber++;
+                    currentDificulty = "medium";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 6:
+                    document.getElementById("title").innerHTML = "Q7";
+                    questionNumber++;
+                    currentDificulty = "medium";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 7:
+                    document.getElementById("title").innerHTML = "Q8";
+                    questionNumber++;
+                    currentDificulty = "medium";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 8:
+                    document.getElementById("title").innerHTML = "Q9";
+                    questionNumber++;
+                    currentDificulty = "hard";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 9:
+                    document.getElementById("title").innerHTML = "Q10";
+                    questionNumber++;
+                    currentDificulty = "hard";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 10:
+                    document.getElementById("title").innerHTML = "Quiz Finished!";
+                    document.getElementById("text").innerHTML = `You got: ${result}/10`;
+                    questionNumber++;
+                    break;
+
+                default:
+                    console.log("switch_case error")
+                    break;
+            }
+        });
+
+        const EasyAnimalQuestions = [
+    {
+        key: 1,
+        question: "Which animal is known as the 'King of the Jungle'?",
+        answer: 0,
+        options: ["Lion", "Tiger", "Elephant", "Cheetah"]
+    },
+    {
+        key: 2,
+        question: "What is the fastest land animal?",
+        answer: 0,
+        options: ["Cheetah", "Leopard", "Horse", "Falcon"]
+    },
+    {
+        key: 3,
+        question: "Which animal is famous for its black and white stripes?",
+        answer: 0,
+        options: ["Zebra", "Tiger", "Panda", "Skunk"]
+    },
+    {
+        key: 4,
+        question: "What do pandas mainly eat?",
+        answer: 0,
+        options: ["Bamboo", "Grass", "Fruits", "Insects"]
+    },
+    {
+        key: 5,
+        question: "Which bird is known for its ability to mimic sounds, including human speech?",
+        answer: 0,
+        options: ["Parrot", "Crow", "Owl", "Peacock"]
+    },
+    {
+        key: 6,
+        question: "What is the tallest animal in the world?",
+        answer: 0,
+        options: ["Giraffe", "Elephant", "Kangaroo", "Camel"]
+    },
+    {
+        key: 7,
+        question: "Which aquatic animal is known for its eight arms?",
+        answer: 0,
+        options: ["Octopus", "Squid", "Jellyfish", "Starfish"]
+    },
+];
+
+const MediumAnimalQuestions = [
+    {
+        key: 1,
+        question: "Which mammal is capable of true flight?",
+        answer: 0,
+        options: ["Bat", "Flying Squirrel", "Eagle", "Penguin"]
+    },
+    {
+        key: 2,
+        question: "What is a group of lions called?",
+        answer: 0,
+        options: ["Pride", "Herd", "Pack", "Swarm"]
+    },
+    {
+        key: 3,
+        question: "What is the largest species of bear?",
+        answer: 0,
+        options: ["Polar Bear", "Grizzly Bear", "Panda Bear", "Black Bear"]
+    },
+    {
+        key: 4,
+        question: "Which animal has the longest lifespan?",
+        answer: 0,
+        options: ["Tortoise", "Whale", "Elephant", "Parrot"]
+    },
+    {
+        key: 5,
+        question: "Which sea creature has three hearts?",
+        answer: 0,
+        options: ["Octopus", "Shark", "Dolphin", "Starfish"]
+    },
+    {
+        key: 6,
+        question: "Which bird is known for its impressive mating dance?",
+        answer: 0,
+        options: ["Peacock", "Flamingo", "Penguin", "Albatross"]
+    },
+    {
+        key: 7,
+        question: "What is the name of the only venomous primate?",
+        answer: 0,
+        options: ["Slow Loris", "Capuchin Monkey", "Howler Monkey", "Mandrill"]
+    },
+    {
+        key: 8,
+        question: "Which animal is known for its ability to regrow lost limbs?",
+        answer: 0,
+        options: ["Starfish", "Lizard", "Crab", "Octopus"]
+    },
+];
+
+const HardAnimalQuestions = [
+    {
+        key: 1,
+        question: "What is the name of the bird that can fly backward?",
+        answer: 0,
+        options: ["Hummingbird", "Kingfisher", "Swift", "Eagle"]
+    },
+    {
+        key: 2,
+        question: "Which animal can sleep for up to three years?",
+        answer: 0,
+        options: ["Snail", "Sloth", "Bear", "Frog"]
+    },
+    {
+        key: 3,
+        question: "What is the only mammal that lays eggs?",
+        answer: 0,
+        options: ["Platypus", "Echidna", "Armadillo", "Anteater"]
+    },
+    {
+        key: 4,
+        question: "What is a group of crows called?",
+        answer: 0,
+        options: ["Murder", "Flock", "Swarm", "Gaggle"]
+    },
+    {
+        key: 5,
+        question: "What is the largest type of shark?",
+        answer: 0,
+        options: ["Whale Shark", "Great White Shark", "Hammerhead Shark", "Tiger Shark"]
+    },
+    {
+        key: 6,
+        question: "Which animal has the most extended migration of any mammal?",
+        answer: 0,
+        options: ["Humpback Whale", "Caribou", "Elephant Seal", "Blue Whale"]
+    },
+    {
+        key: 7,
+        question: "Which animal can turn its stomach inside out to eat?",
+        answer: 0,
+        options: ["Starfish", "Octopus", "Sea Urchin", "Jellyfish"]
+    },
+    {
+        key: 8,
+        question: "Which insect has been known to survive decapitation for days?",
+        answer: 0,
+        options: ["Cockroach", "Ant", "Beetle", "Wasp"]
+    },
+];
+
+
+        function buttonselected(num) {
+            if (num === currentQuestion.answer) {
+                document.getElementById("correct").innerHTML = "correct";
+            } else {
+                document.getElementById("correct").innerHTML = "incorrect";
+            }
+        } 
+
+        function displayOptions() {
+            document.getElementById("0").innerHTML = currentQuestion.options[0];
+            document.getElementById("1").innerHTML = currentQuestion.options[1];
+            document.getElementById("2").innerHTML = currentQuestion.options[2];
+            document.getElementById("3").innerHTML = currentQuestion.options[3];  
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag quiz</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="question-card" id="question-card" oncli>
+        <p id="title">Flag quiz!</p>
+        <p id="text">Click to continue</p>
+        <button id="0" onclick="buttonselected(0)"></button>
+        <button id="1" onclick="buttonselected(1)"></button>
+        <button id="2" onclick="buttonselected(2)"></button>
+        <button id="3" onclick="buttonselected(3)"></button>
+        <p id="correct"></p>
+    </div>
+    <script>
+        var questionNumber = 0;
+        var result = 0;
+        var currentDificulty = "easy";
+        var currentQuestion;
+        var button1 = document.getElementById("0");
+        var button2 = document.getElementById("1");
+        var button3 = document.getElementById("2");
+        var button4 = document.getElementById("3");
+
+
+        function chooseQuestion() {
+            if(currentDificulty == "easy"){
+                        var quest_num = Math.floor(Math.random() * 7)
+                        currentQuestion = EasyFlagQuestions[quest_num]
+                    }else if(currentDificulty == "medium"){
+                        var quest_num = Math.floor(Math.random() * 8)
+                        currentQuestion = MediumFlagQuestions[quest_num]
+                    }else{
+                        var quest_num = Math.floor(Math.random() * 5)
+                        currentQuestion = MediumFlagQuestions[quest_num]
+                    }
+        }
+
+        
+
+        const card = document.querySelector('#question-card');
+        document.getElementById("title").innerHTML = "New text!";
+        card.addEventListener('click', function () {
+            switch (questionNumber) {
+                case 0:
+                    document.getElementById("title").innerHTML = "Q1";
+                    questionNumber++;
+                    currentDificulty = "easy";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 1:
+                    document.getElementById("title").innerHTML = "Q2";
+                    questionNumber++;
+                    currentDificulty = "easy";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 2:
+                document.getElementById("title").innerHTML = "Q3";
+                    questionNumber++;
+                    currentDificulty = "easy";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 3:
+                    document.getElementById("title").innerHTML = "Q4";
+                    questionNumber++;
+                    currentDificulty = "easy";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 4:
+                    document.getElementById("title").innerHTML = "Q5";
+                    questionNumber++;
+                    currentDificulty = "medium";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 5:
+                    document.getElementById("title").innerHTML = "Q6";
+                    questionNumber++;
+                    currentDificulty = "medium";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 6:
+                    document.getElementById("title").innerHTML = "Q7";
+                    questionNumber++;
+                    currentDificulty = "medium";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 7:
+                    document.getElementById("title").innerHTML = "Q8";
+                    questionNumber++;
+                    currentDificulty = "medium";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 8:
+                    document.getElementById("title").innerHTML = "Q9";
+                    questionNumber++;
+                    currentDificulty = "hard";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 9:
+                    document.getElementById("title").innerHTML = "Q10";
+                    questionNumber++;
+                    currentDificulty = "hard";
+                    chooseQuestion();
+                    document.getElementById("text").innerHTML = currentQuestion.question;
+                    displayOptions()
+                    break;
+                case 10:
+                    document.getElementById("title").innerHTML = "Quiz Finished!";
+                    document.getElementById("text").innerHTML = `You got: ${result}/10`;
+                    questionNumber++;
+                    break;
+
+                default:
+                    console.log("switch_case error")
+                    break;
+            }
+        });
+
+        const EasyFlagQuestions = [
+            {
+                key: 1,
+                question: "What color is the top stripe on the flag of Germany?",
+                answer: 0,
+                options: ["Black", "Red", "Yellow", "White"]
+            },
+            {
+                key: 2,
+                question: "Which country has a red flag with a white cross?",
+                answer: 0,
+                options: ["Switzerland", "Denmark", "England", "Norway"]
+            },
+            {
+                key: 3,
+                question: "Which country's flag features a red circle on a white background?",
+                answer: 0,
+                options: ["Japan", "Bangladesh", "Turkey", "South Korea"]
+            },
+            {
+                key: 4,
+                question: "What is the main color of the Canadian flag?",
+                answer: 0,
+                options: ["Red", "White", "Green", "Blue"]
+            },
+            {
+                key: 5,
+                question: "What is the color of the cross on the Swedish flag?",
+                answer: 0,
+                options: ["Yellow", "Blue", "White", "Green"]
+            },
+            {
+                key: 6,
+                question: "What color is the maple leaf on the Canadian flag?",
+                answer: 0,
+                options: ["Red", "Green", "White", "Black"]
+            },
+            {
+                key: 7,
+                question: "What is the shape of the white field on the Swiss flag?",
+                answer: 0,
+                options: ["Square", "Rectangle", "Circle", "Triangle"]
+            },
+        ];
+
+        const MediumFlagQuestions = [
+            {
+                key: 1,
+                question: "Which African country has a flag with a cedar tree on it?",
+                answer: 0,
+                options: ["Lebanon", "Morocco", "Algeria", "Tunisia"]
+            },
+            {
+                key: 2,
+                question: "What are the three colors of the French flag?",
+                answer: 0,
+                options: ["Blue, White, Red", "Red, White, Green", "Black, Yellow, Red", "White, Blue, Green"]
+            },
+            {
+                key: 3,
+                question: "What does the white crescent moon and star on the Turkish flag symbolize?",
+                answer: 0,
+                options: ["Islam", "Unity", "Victory", "Hope"]
+            },
+            {
+                key: 4,
+                question: "Which Asian country has a flag with a red circle offset slightly to the left?",
+                answer: 0,
+                options: ["Bangladesh", "Japan", "South Korea", "Nepal"]
+            },
+            {
+                key: 5,
+                question: "What are the three colors of the Indian flag?",
+                answer: 0,
+                options: ["Saffron, White, Green", "Green, White, Blue", "Orange, White, Red", "Yellow, Green, Red"]
+            },
+            {
+                key: 6,
+                question: "What symbol is in the center of the Brazilian flag?",
+                answer: 0,
+                options: ["A globe", "A star", "A shield", "A sun"]
+            },
+            {
+                key: 7,
+                question: "Which country has a flag that is green with a vertical red stripe near the hoist?",
+                answer: 0,
+                options: ["Morocco", "Algeria", "Malawi", "Nigeria"]
+            },
+            {
+                key: 8,
+                question: "Which country's flag has a blue and white Star of David?",
+                answer: 0,
+                options: ["Israel", "Greece", "Argentina", "Uruguay"]
+            },
+        ];
+
+        const HardFlagQuestions = [
+            {
+                key: 1,
+                question: "Which flag features a yellow star on a red background?",
+                answer: 0,
+                options: ["Vietnam", "China", "North Korea", "Soviet Union"]
+            },
+            {
+                key: 2,
+                question: "What two animals appear on the flag of Mexico?",
+                answer: 0,
+                options: ["Eagle and snake", "Lion and eagle", "Snake and bear", "Wolf and snake"]
+            },
+            {
+                key: 3,
+                question: "Which country has the only flag that is not quadrilateral in shape?",
+                answer: 0,
+                options: ["Nepal", "Switzerland", "Bhutan", "Vatican City"]
+            },
+            {
+                key: 4,
+                question: "Which European country's flag features a double-headed eagle?",
+                answer: 0,
+                options: ["Albania", "Russia", "Serbia", "Montenegro"]
+            },
+            {
+                key: 5,
+                question: "What is the only country whose flag has changed colors but retained the same design since its independence?",
+                answer: 0,
+                options: ["Libya", "Sudan", "Chad", "Ethiopia"]
+            },
+        ];
+
+        function buttonselected(num) {
+            if (num === currentQuestion.answer) {
+                document.getElementById("correct").innerHTML = "correct";
+            } else {
+                document.getElementById("correct").innerHTML = "incorrect";
+            }
+        } 
+
+        function displayOptions() {
+            document.getElementById("0").innerHTML = currentQuestion.options[0];
+            document.getElementById("1").innerHTML = currentQuestion.options[1];
+            document.getElementById("2").innerHTML = currentQuestion.options[2];
+            document.getElementById("3").innerHTML = currentQuestion.options[3];  
+        }
+    </script>
+</body>
+
+</html>
